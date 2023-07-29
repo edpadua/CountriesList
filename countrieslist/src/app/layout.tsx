@@ -2,6 +2,17 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import Navbar from "./Components/Navbar/index"
+import Footer from "./Components/Footer/index"
+
+import tw from "tailwind-styled-components"
+
+const Container = tw.div`
+     w-full 
+     px-16 
+     py-10
+`;
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +27,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+        <Navbar />
+        <Container>
+          {children}
+        </Container>
+        <Footer />
+      </body>
+
     </html>
   )
 }

@@ -17,6 +17,15 @@ const NameCountry = tw.h1`
 `;
 
 
+const InfoCountry = tw.div`
+     min-w-full p-10 bg-slate-100 rounded-xl
+`;
+
+const Info = tw.h2`
+    text-xl text-gray-800 mt-3
+`;
+
+
 async function getCountryByName(name: string): Promise<Country> {
 
 
@@ -43,32 +52,40 @@ async function CountryPage({
 
         Voltar
       </Link>
-      <div className="min-w-full p-10 bg-slate-100 rounded-xl">
-        <h2 className="text-xl text-gray-800 mt-3">
+      <InfoCountry>
+        <Info>
           <b>Capital:</b> {country.capital}
-        </h2>
-        <h2 className="text-xl text-gray-800 mt-3">
+        </Info>
+        <Info>
           <b>Continente:</b> {country.region}
           {country.subregion && `- ${country.subregion}`}
-        </h2>
-        <h2 className="text-xl text-gray-800 mt-3">
+        </Info>
+        <Info>
           <b>População:</b> {formatter.format(country.population)}
-        </h2>
+        </Info>
         {country.languages && (
-            <h2 className="text-xl text-gray-800 mt-3">
-              <b>Línguas faladas:</b>
-              <br />
-              {Object.values(country.languages).map((language) => (
-                <span
-                  key={language}
-                  className="inline-block px-2 bg-indigo-700 mr-2 text-white text-sm rounded-full"
-                >
-                  {language}
-                </span>
-              ))}
-            </h2>
-          )}
-      </div>
+          <Info>
+            <b>Línguas faladas:</b>
+            <br />
+            {Object.values(country.languages).map((language) => (
+              <span
+                key={language}
+                className="inline-block px-2 bg-indigo-700 mr-2 text-white text-sm rounded-full"
+              >
+                {language}
+              </span>
+            ))}
+          </Info>
+        )}
+        <div className="relative h-48 my-2 w-96 shadow-md md:order-last order-first">
+          <Image
+            src={country.flags.svg}
+            alt={country.flags.alt}
+            fill
+            className="object-cover"
+          />
+        </div>
+      </InfoCountry>
     </div>
   )
 }

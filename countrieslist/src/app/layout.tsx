@@ -10,7 +10,7 @@ import tw from "tailwind-styled-components"
 const Container = tw.div`
      w-full 
      px-16 
-     py-10
+     py-12
 `;
 
 const inter = Inter({ subsets: ['latin'] })

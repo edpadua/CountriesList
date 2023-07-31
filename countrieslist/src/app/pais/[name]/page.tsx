@@ -10,7 +10,7 @@ import { Country, CountryList } from '../../@types/types';
 
 import axios from 'axios';
 
-import tw from "tailwind-styled-components"
+import tw from "tailwind-styled-components";
 
 const NameCountry = tw.h1`
     text-5xl text-center font-bold 
@@ -18,12 +18,23 @@ const NameCountry = tw.h1`
 
 
 const InfoCountry = tw.div`
-     min-w-full p-10 bg-slate-100 rounded-xl
+     w-full p-10 bg-slate-100 rounded-xl
 `;
 
 const Info = tw.h2`
     text-xl text-gray-800 mt-3
 `;
+
+const InfoContainerImg = tw.div`
+relative my-2 w-1/2 h-80 min-h-full  md:order-last order-first
+`;
+
+
+const LanguageItem = tw.span`
+inline-block px-2 bg-blue-800 mr-2 text-white text-sm
+`;
+
+
 
 
 async function getCountryByName(name: string): Promise<Country> {
@@ -46,9 +57,9 @@ async function CountryPage({
   const formatter = Intl.NumberFormat("en", { notation: "compact" });
 
   return (
-    <div>
+    <div className="flex flex-col container">
       <NameCountry>{country.name.common}</NameCountry>
-      <Link className="flex items-center py-2" href="/">
+      <Link className="flex items-center py-4" href="/">
 
         Voltar
       </Link>
@@ -68,23 +79,22 @@ async function CountryPage({
             <b>Línguas faladas:</b>
             <br />
             {Object.values(country.languages).map((language) => (
-              <span
+              <LanguageItem
                 key={language}
-                className="inline-block px-2 bg-indigo-700 mr-2 text-white text-sm rounded-full"
               >
                 {language}
-              </span>
+              </LanguageItem>
             ))}
           </Info>
         )}
-        <div className="relative h-48 my-2 w-96 shadow-md md:order-last order-first">
+        <InfoContainerImg>
           <Image
             src={country.flags.svg}
             alt={country.flags.alt}
             fill
             className="object-cover"
           />
-        </div>
+        </InfoContainerImg>
       </InfoCountry>
     </div>
   )

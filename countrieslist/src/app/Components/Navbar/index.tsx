@@ -7,7 +7,7 @@ import tw from "tailwind-styled-components"
 import { AiFillFlag } from "react-icons/ai"
 
 const Nav = tw.nav`
-    bg-indigo-600
+    bg-blue-800
     top-0 
     left-0 
     right-0 

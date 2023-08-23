@@ -14,7 +14,7 @@
  
 ## About
 
-This project consists of an application that presents a list of flags of several countries, when clicking on each one of them, the user is directed to a page containing information such as population, spoken languages, capital, region and also the list of bordering countries. The list of countries is obtained from the Rest Countries API.
+This project consists of an application that presents a list of flags of several countries around the globe, when clicking on each one of them, the user is directed to a page containing information such as population, spoken languages, capital, region and also the list of bordering countries. The list of countries is obtained from the Rest Countries API.
 
 The main objective of this project was to use the React library within the Next.js framework to test its features. In addition to Next.js, axios was also used to customize the Rest API, Tailwind Styled-Components and Tailwind CSS for styles and the TypeScript language
 
